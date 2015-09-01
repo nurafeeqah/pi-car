@@ -17,7 +17,7 @@ class Main:
         self.motor = Motor(50)
         self.light = Light()
         self.ultrasonic = Ultrasonic()
-        self.camera = Camera()
+        self.camera = Camera((120, 90))
 
     def start(self, condition=1):
 
