@@ -6,10 +6,10 @@ class BCM_PIN:
     def __init__(self, initOutput=False):
 
         # Use for motor
-        self.FRONT_1        = 18  # OUT
-        self.FRONT_2        = 23  # OUT
-        self.BACK_1         = 17  # OUT
-        self.BACK_2         = 22  # OUT
+        self.FRONT_1        = 18  # OUT # LEFT
+        self.FRONT_2        = 23  # OUT # RIGHT
+        self.BACK_1         = 17  # OUT # LEFT
+        self.BACK_2         = 22  # OUT # RIGHT
 
         # Use for ultrasonic
         self.TRIG           = 25  # OUT

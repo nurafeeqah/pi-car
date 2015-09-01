@@ -57,37 +57,37 @@ class Motor:
 
     def turnright(self):
         print "turn right"
-        self.FRONT_1.ChangeDutyCycle(0)
+        self.FRONT_1.ChangeDutyCycle(self.SPEED)
         self.FRONT_2.ChangeDutyCycle(0)
         self.BACK_1.ChangeDutyCycle(0)
-        self.BACK_2.ChangeDutyCycle(self.SPEED)
+        self.BACK_2.ChangeDutyCycle(0)
 
     def reverseleft(self):
         print "reverse to left"
         self.FRONT_1.ChangeDutyCycle(0)
         self.FRONT_2.ChangeDutyCycle(0)
-        self.BACK_1.ChangeDutyCycle(self.SPEED)
-        self.BACK_2.ChangeDutyCycle(0)
+        self.BACK_1.ChangeDutyCycle(0)
+        self.BACK_2.ChangeDutyCycle(self.SPEED)
 
     def reverseright(self):
         print "reverse to right"
         self.FRONT_1.ChangeDutyCycle(0)
-        self.FRONT_2.ChangeDutyCycle(self.SPEED)
-        self.BACK_1.ChangeDutyCycle(0)
+        self.FRONT_2.ChangeDutyCycle(0)
+        self.BACK_1.ChangeDutyCycle(self.SPEED)
         self.BACK_2.ChangeDutyCycle(0)
 
     def spinclockwise(self):
         print "spin clockwise"
-        self.FRONT_1.ChangeDutyCycle(0)
+        self.FRONT_1.ChangeDutyCycle(self.SPEED)
         self.FRONT_2.ChangeDutyCycle(0)
-        self.BACK_1.ChangeDutyCycle(self.SPEED)
+        self.BACK_1.ChangeDutyCycle(0)
         self.BACK_2.ChangeDutyCycle(self.SPEED)
 
     def spinanticlockwise(self):
         print "spin anti-clockwise"
-        self.FRONT_1.ChangeDutyCycle(self.SPEED)
+        self.FRONT_1.ChangeDutyCycle(0)
         self.FRONT_2.ChangeDutyCycle(self.SPEED)
-        self.BACK_1.ChangeDutyCycle(0)
+        self.BACK_1.ChangeDutyCycle(self.SPEED)
         self.BACK_2.ChangeDutyCycle(0)
 
     def stop(self):
@@ -96,3 +96,4 @@ class Motor:
         self.FRONT_2.ChangeDutyCycle(0)
         self.BACK_1.ChangeDutyCycle(0)
         self.BACK_2.ChangeDutyCycle(0)
+        
