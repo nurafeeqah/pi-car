@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-from bcm_pin import BCM_PIN
+from libs.bcm_pin import BCM_PIN
 
 class Light:
 

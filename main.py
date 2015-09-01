@@ -1,8 +1,8 @@
-from motor import Motor
-from sensor_light import Light
-from sensor_ultrasonic import Ultrasonic
-from sensor_camera import Camera
-from bcm_pin import BCM_PIN
+from libs.motor import Motor
+from sensors.light import Light
+from sensors.ultrasonic import Ultrasonic
+from sensors.camera import Camera
+from libs.bcm_pin import BCM_PIN
 import os
 import time
 import datetime
@@ -62,6 +62,7 @@ class Main:
             self.motor.stop()
 
     def brightest(self):
+        self.motor.setSpeed(30)
         self.camera.captureImage()
         width, height = self.camera.resolution
 
@@ -78,8 +79,6 @@ class Main:
         # If brightest in front
         else:
             self.motor.forward()
-
-        time.sleep(1)
 
     def stop(self):
         self.motor.stop()

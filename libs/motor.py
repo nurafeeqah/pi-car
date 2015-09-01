@@ -97,3 +97,6 @@ class Motor:
         self.BACK_1.ChangeDutyCycle(0)
         self.BACK_2.ChangeDutyCycle(0)
         
+    def setSpeed(self,speed):
+        self.SPEED = speed
+        
