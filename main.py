@@ -22,7 +22,7 @@ class Main:
     def start(self, condition=1):
 
         # self.printInfoStatus()
-        
+
         switcher = {
             0: 'brightest',
             1: 'distance'
@@ -41,6 +41,7 @@ class Main:
         print "Ultrasonic Distance: " + str(self.ultrasonic.getDistance()) + "cm"
 
     def distance(self):
+        self.motor.setSpeed(50)
         distance = self.ultrasonic.getDistance()
         if  10 <= distance <= 20:
             self.motor.forward()
