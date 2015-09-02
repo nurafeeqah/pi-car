@@ -14,9 +14,6 @@ class Light:
         self.LIGHT_SENSOR_1 = bcmpin.LIGHT_SENSOR_1
         self.LIGHT_SENSOR_2 = bcmpin.LIGHT_SENSOR_2
 
-        gpio.setmode(gpio.BCM)
-        gpio.setwarnings(False)
-
         # set up digital line detectors as inputs
         gpio.setup(self.LIGHT_SENSOR_1, gpio.IN)
         gpio.setup(self.LIGHT_SENSOR_2, gpio.IN)
@@ -29,11 +26,3 @@ class Light:
             return gpio.input(self.LIGHT_SENSOR_2)
         else:
             return -1
-
-
-
-
-
-
-
-

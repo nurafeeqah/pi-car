@@ -19,6 +19,9 @@ class BCM_PIN:
         self.LIGHT_SENSOR_1 = 4   # IN
         self.LIGHT_SENSOR_2 = 27  # IN
 
+        # Use for switch
+        self.SWITCH         = 7   # IN
+
         if initOutput:
             # Set mode and warning
             gpio.setmode(gpio.BCM)

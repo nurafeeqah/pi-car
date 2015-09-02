@@ -21,30 +21,17 @@ class Main:
 
     def start(self, condition=1):
 
+        # self.printInfoStatus()
+        
         switcher = {
             0: 'brightest',
             1: 'distance'
         }
-
         method = getattr(self, switcher[condition], lambda: 'nothing')
-
-        while(True):
-            try:
-                self.printInfoStatus()
-                method()
-                time.sleep(0.2)
-
-            except(KeyboardInterrupt):
-                print "Finishing"
-                self.stop()
-                break
-
-            except:
-                print "Unexpected error"
-                raise
+        method()
 
     def printInfoStatus(self):
-        os.system('clear')
+        # os.system('clear')
         print "Info: ", datetime.datetime.now()
         print ""
         print "Light sensor: "
@@ -54,9 +41,10 @@ class Main:
         print "Ultrasonic Distance: " + str(self.ultrasonic.getDistance()) + "cm"
 
     def distance(self):
-        if self.ultrasonic.getDistance() > 15:
+        distance = self.ultrasonic.getDistance()
+        if  10 <= distance <= 20:
             self.motor.forward()
-        elif self.ultrasonic.getDistance() < 5:
+        elif 1 <= distance <= 5:
             self.motor.reverse()
         else:
             self.motor.stop()
@@ -83,8 +71,3 @@ class Main:
     def stop(self):
         self.motor.stop()
         self.bcm_pin.cleanup()
-
-
-main = Main()
-main.start(0)
-

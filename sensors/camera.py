@@ -5,7 +5,7 @@ from PIL import Image
 
 class Camera:
 
-    def __init__(self, resolution=(300, 225), filename='images/snap.jpg'):
+    def __init__(self, resolution=(300, 225), filename='/home/pi/project/pi-car/images/snap.jpg'):
         self.filename = filename
         self.resolution = resolution
 
