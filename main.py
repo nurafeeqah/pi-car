@@ -1,5 +1,5 @@
 from libs.motor import Motor
-from sensors.light import Light
+# from sensors.light import Light
 from sensors.ultrasonic import Ultrasonic
 from sensors.camera import Camera
 from libs.bcm_pin import BCM_PIN
@@ -15,7 +15,7 @@ class Main:
 
         # Initialize motor with speed, 0 => slowest, 100 => fastest
         self.motor = Motor(50)
-        self.light = Light()
+        # self.light = Light()
         self.ultrasonic = Ultrasonic()
         self.camera = Camera((120, 90))
 
@@ -34,9 +34,9 @@ class Main:
         # os.system('clear')
         print "Info: ", datetime.datetime.now()
         print ""
-        print "Light sensor: "
-        print self.light.getSensorState(1)
-        print self.light.getSensorState(2)
+        # print "Light sensor: "
+        # print self.light.getSensorState(1)
+        # print self.light.getSensorState(2)
         print ""
         print "Ultrasonic Distance: " + str(self.ultrasonic.getDistance()) + "cm"
 
@@ -51,18 +51,18 @@ class Main:
             self.motor.stop()
 
     def brightest(self):
-        self.motor.setSpeed(30)
+        self.motor.setSpeed(50)
         self.camera.captureImage()
         width, height = self.camera.resolution
 
         brightest = self.camera.getBrightest()
 
         # If brightest in left
-        if brightest['x'] < ((width/2) - 25):
+        if brightest['x'] < ((width/2) - 5):
             self.motor.spinanticlockwise()
 
         # If brightest in right
-        elif brightest['x'] > ((width/2) + 25):
+        elif brightest['x'] > ((width/2) + 5):
             self.motor.spinclockwise()
         
         # If brightest in front
@@ -72,3 +72,13 @@ class Main:
     def stop(self):
         self.motor.stop()
         self.bcm_pin.cleanup()
+
+main = Main()
+while True:
+    try:
+        main.start(1)
+
+    except(KeyboardInterrupt):
+        print "Finishing"
+        main.stop()
+        break

@@ -34,6 +34,7 @@ class Motor:
         self.FRONT_2=gpio.PWM(self.FRONT_2_PIN, self.SPEED)
         self.FRONT_2.start(0)
 
+    #Defining forward function
     def forward(self):
         print "forward with speed " + str(self.SPEED)
         self.FRONT_1.ChangeDutyCycle(self.SPEED)
